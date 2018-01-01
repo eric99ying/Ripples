@@ -1,0 +1,52 @@
+:root{
+	--ripple_radius:300px;
+	--ripple_offset:-150px;
+
+}
+
+#circle{
+	width: 1px;
+	height: 1px;
+	background: rgba(255,255,255,0);
+	border-style: solid;
+	border-color: red;
+	border-width: 1px;
+	border-radius: 50%;
+	position: "absolute";
+
+	animation-name: ripple;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;  
+
+
+}
+
+#trace_circle{
+	width: 1px;
+	height: 1px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.5);
+	position: "absolute";
+
+	animation-name: expand;
+	animation-duration: 3s;
+	animation-timing-function:linear;
+	animation-fill-mode: forwards;  
+
+}
+
+
+@keyframes expand{
+	0% {width:1px;height:1px;opacity:1;}
+
+	100% {width:var(--ripple_radius);height:var(--ripple_radius);transform:translate(var(--ripple_offset),var(--ripple_offset));opacity:0.5;}
+}
+
+
+@keyframes ripple{
+ 	 0% {width:1px;height:1px;opacity:1;}
+  
+  	100% {width:var(--ripple_radius);height:var(--ripple_radius);transform:translate(var(--ripple_offset),var(--ripple_offset));opacity:0;}
+  
+}
